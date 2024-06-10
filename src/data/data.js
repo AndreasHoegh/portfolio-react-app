@@ -1,30 +1,31 @@
 import Upcoming from "../assets/projects/UPCOMING.png";
+import herfordig from "../assets/projects/herfordig.png";
 
 export const data = [
   {
     id: 1,
     name: "React JS Application",
-    image: Upcoming,
+    image: herfordig,
     github: "",
     live: "",
   },
   {
     id: 2,
-    name: "React JS Application",
+    name: "upcoming",
     image: Upcoming,
     github: "",
     live: "",
   },
   {
     id: 3,
-    name: "React JS Application",
+    name: "upcoming",
     image: Upcoming,
     github: "",
     live: "",
   },
   {
     id: 4,
-    name: "React JS Application",
+    name: "upcoming",
     image: Upcoming,
     github: "",
     live: "",
