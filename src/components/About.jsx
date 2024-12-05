@@ -24,10 +24,7 @@ const About = () => {
           <div>
             <p>
               I am a Bachelor of Engineering in Healthcare Technology,
-              passionate about building excellent software that improves the
-              lives of those around me. I specialize in creating software for
-              clients ranging from individuals and small-businesses all the way
-              to large enterprise corporations.
+              passionate about building excellent software.
             </p>
           </div>
         </div>
