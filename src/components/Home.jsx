@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div
       name="home"
-      className="w-full h-screen bg-stone-100 min-h-[1024px] pt-24 "
+      className=" h-screen bg-stone-100 min-h-[1024px] pt-24 w-screen "
     >
       {/* Container */}
       <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full mt-6">
@@ -26,7 +26,7 @@ const Home = () => {
         </p>
 
         {/* Circle and btn Container */}
-        <div className="flex justify-between mb-8">
+        <div className="flex justify-between mb-8 max-w-screen">
           <button className=" group border-y-2 py-2 px-2 my-4 h-10 text-xs sm:text-lg hover:bg-customPurple hover:border-customPurple hover:text-white">
             <Link
               to="work"
@@ -48,14 +48,14 @@ const Home = () => {
                 opacity: 1,
                 transition: { delay: 0.4, duration: 1.2, ease: "easeInOut" },
               }}
-              className=" md:w-[368px] md:h-[368px] w-[208px] h-[208px]  mix-blend-darken absolute ml-8 mt-8 md:mt-4 "
+              className=" md:w-[368px] md:h-[368px] w-[148px] h-[208px]  mix-blend-darken absolute ml-4 sm:ml-8 mt-8 md:mt-4 "
             >
               <img src={hero} alt="Description of the" className="w-full  " />
             </motion.div>
 
             {/* circle */}
             <motion.svg
-              className="w-[300px] h-[450px] md:w-[500px] md:h-[700px] stroke-customPurple"
+              className="w-[200px] h-[330px] md:w-[500px] md:h-[700px] stroke-customPurple"
               fill="transparent"
               viewBox="0 0 506 506"
             >
