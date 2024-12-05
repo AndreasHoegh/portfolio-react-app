@@ -6,6 +6,9 @@ module.exports = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--gradient-color-stops))",
       },
+      colors: {
+        customPurple: "#0000FF",
+      },
     },
   },
   plugins: [],

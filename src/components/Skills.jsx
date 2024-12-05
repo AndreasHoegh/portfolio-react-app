@@ -1,5 +1,6 @@
 import React from "react";
 
+// Importer billeder af skills
 import HTML from "../assets/html.png";
 import CSS from "../assets/css.png";
 import JavaScript from "../assets/javascript.png";
@@ -12,66 +13,53 @@ import Csharp from "../assets/csharp.png";
 import NodeJS from "../assets/nodejs.png";
 import Jenkins from "../assets/jenkins.png";
 
+// Opret en array-liste med skills
+const skillsData = [
+  { name: "HTML", image: HTML },
+  { name: "CSS", image: CSS },
+  { name: "JavaScript", image: JavaScript },
+  { name: "React", image: ReactImg },
+  { name: "GitHub", image: GitHub },
+  { name: "C#", image: Csharp },
+  { name: "Tailwind", image: Tailwind },
+  { name: "Firebase", image: FireBase },
+  { name: "SQL", image: Sql },
+  { name: "NodeJS", image: NodeJS },
+  { name: "Jenkins", image: Jenkins },
+];
+
 const Skills = () => {
   return (
     <div
       name="skills"
-      className="w-full md:h-screen bg-[#0a192f] text-gray-300"
+      className="w-full md:h-screen min-h-[1024px] bg-stone-100 px-8"
     >
       {/* Container */}
       <div className="max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full pt-8">
         <div>
-          <p className="text-4xl font-bold inline border-b-4 border-pink-600 ">
+          <p className="text-4xl font-bold inline border-b-4 border-customPurple">
             Skills
           </p>
-          <p className="py-4">These are the technologies I've worked with</p>
+          <p className="py-4 text-xl font-semibold border-b-2 border-customPurple border-opacity-15">
+            These are the technologies I've worked with
+          </p>
         </div>
 
+        {/* Grid af skills */}
         <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 text-center py-8">
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={HTML} alt="HTML icon" />
-            <p className="my-4">HTML</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={CSS} alt="HTML icon" />
-            <p className="my-4">CSS</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={JavaScript} alt="HTML icon" />
-            <p className="my-4">JAVASCRIPT</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={ReactImg} alt="HTML icon" />
-            <p className="my-4">REACT</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={GitHub} alt="HTML icon" />
-            <p className="my-4">GITHUB</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={Csharp} alt="HTML icon" />
-            <p className="my-4">C#</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={Tailwind} alt="HTML icon" />
-            <p className="my-4">TAILWIND</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={FireBase} alt="HTML icon" />
-            <p className="my-4">FIREBASE</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={Sql} alt="HTML icon" />
-            <p className="my-4">SQL</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-20 mx-auto" src={NodeJS} alt="HTML icon" />
-            <p className="my-4">NodeJS</p>
-          </div>
-          <div className="shadow-md shadow-[#040c16] hover:scale-110 duration-500">
-            <img className="w-15 h-20 mx-auto" src={Jenkins} alt="HTML icon" />
-            <p className="my-4">Jenkins</p>
-          </div>
+          {skillsData.map((skill, index) => (
+            <div
+              key={index}
+              className="bg-[#a9acaa] shadow-md shadow-[#7ae491] hover:scale-110 duration-200"
+            >
+              <img
+                className="w-20 h-20 mx-auto mt-2"
+                src={skill.image}
+                alt={`${skill.name} icon`}
+              />
+              <p className="my-4">{skill.name.toUpperCase()}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
