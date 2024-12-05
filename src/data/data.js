@@ -1,5 +1,4 @@
 import Upcoming from "../assets/projects/UPCOMING.png";
-import herfordig from "../assets/projects/herfordig.png";
 
 export const data = [
   {
