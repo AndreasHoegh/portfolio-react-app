@@ -17,14 +17,16 @@ const About = () => {
         </div>
         <div className="max-w-[1000px] w-full grid sm:grid-cols-2 gap-8 px-4">
           <div className="sm:text-right text-4xl font-bold">
-            <p>
-              Hi. I'm Andreas Høgh, nice to meet you. Please take a look around.
-            </p>
+            <p>Nice to meet you. Please take a look around.</p>
           </div>
           <div>
             <p>
               I am a Bachelor of Engineering in Healthcare Technology,
-              passionate about building excellent software.
+              passionate about building excellent software. I used to be a
+              professionel poker player for 5 years before I decided to study
+              Healtcare technology engineering. While I studied I developed a
+              passion for software development, which led me to get a study job
+              as a developer for the last year of my education.
             </p>
           </div>
         </div>

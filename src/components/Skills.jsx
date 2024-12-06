@@ -12,6 +12,7 @@ import Sql from "../assets/sql.png";
 import Csharp from "../assets/csharp.png";
 import NodeJS from "../assets/nodejs.png";
 import Jenkins from "../assets/jenkins.png";
+import Next from "../assets/next.png";
 
 // Opret en array-liste med skills
 const skillsData = [
@@ -26,6 +27,7 @@ const skillsData = [
   { name: "SQL", image: Sql },
   { name: "NodeJS", image: NodeJS },
   { name: "Jenkins", image: Jenkins },
+  { name: "Next", image: Next },
 ];
 
 const Skills = () => {
@@ -41,7 +43,7 @@ const Skills = () => {
             Skills
           </p>
           <p className="py-4 text-xl font-semibold border-b-2 border-customPurple border-opacity-15">
-            These are the technologies I've worked with
+            These are some of the technologies I've worked with
           </p>
         </div>
 

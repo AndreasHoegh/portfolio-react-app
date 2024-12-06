@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div
       name="home"
-      className=" h-screen bg-stone-100 min-h-[1024px] pt-8 w-screen "
+      className=" h-screen bg-stone-100 min-h-[1024px] pt-24 w-screen "
     >
       {/* Container */}
       <div className="max-w-[1000px] mx-auto px-8 flex flex-col justify-center h-full mt-2">
@@ -16,12 +16,14 @@ const Home = () => {
           Welcome to my
         </h1>
         <h2 className="text-4xl sm:text-7xl font-bold">Personal Website</h2>
-        <p className="text-[#8892b0] py-4 max-w-[700px]">
+        <p className="text-[#464e64] py-4 max-w-[700px]">
           My name is{" "}
           <span className="text-customPurple font-semibold">
             Andreas Høgh.{" "}
           </span>{" "}
-          Currently, I'm focused on building responsive web applications
+          Currently, I'm focused on building responsive web applications, while
+          I'm looking for a company to kickstart my career as a software
+          developer.
         </p>
 
         {/* Circle and btn Container */}
