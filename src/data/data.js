@@ -1,6 +1,4 @@
 import Upcoming from "../assets/projects/UPCOMING.png";
-import Dashboard from "../assets/projects/dashboard.png";
-import Eatnsplit from "../assets/projects/eatnsplit.png";
 import Padel from "../assets/projects/padel.png";
 
 export const data = [
