@@ -7,7 +7,7 @@ export const data = [
     name: "Mexicano Padel",
     image: Padel,
     github: "https://github.com/AndreasHoegh/mexicano-padel",
-    live: "https://mexicano-padel-y36f.vercel.app/",
+    live: "https://www.padelamericano.org/",
   },
   {
     id: 2,

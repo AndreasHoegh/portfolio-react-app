@@ -21,12 +21,17 @@ const About = () => {
           </div>
           <div>
             <p>
-              I am a Bachelor of Engineering in Healthcare Technology,
-              passionate about building excellent software. I used to be a
-              professionel poker player for 5 years before I decided to study
-              Healtcare technology engineering. While I studied I developed a
-              passion for software development, which led me to get a study job
-              as a developer for the last year of my education.
+              I hold a Bachelor of Engineering in Healthcare Technology and am
+              passionate about creating innovative software solutions that make
+              a difference. Before diving into the world of engineering, I spent
+              five years as a professional poker player, mastering strategy,
+              adaptability, and high-pressure decision-making. During my final
+              year of education, I worked as a student developer, gaining
+              hands-on experience and discovering the joy of bringing ideas to
+              life through code. Now, I continue to fuel my passion for software
+              development by working on personal projects, exploring new
+              technologies, and constantly challenging myself to grow as a
+              developer.
             </p>
           </div>
         </div>
