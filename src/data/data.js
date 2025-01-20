@@ -13,7 +13,7 @@ export const data = [
     id: 2,
     name: "eat-n-split React",
     image: Upcoming,
-    github: "https://github.com/AndreasHoegh/eat-n-split",
+    github: "",
     live: "",
   },
   {
