@@ -2,120 +2,65 @@ import React, { useState } from "react";
 import { Link } from "react-scroll";
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from "react-icons/fa";
 import Logo from "../assets/logo2.png";
+import { useScrollDirection } from "../hooks/useScrollDirection";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const scrollDirection = useScrollDirection();
   const handleClick = () => setNav(!nav);
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-black text-white">
-      <div className="ml-6">
-        <img src={Logo} alt="Logo" width="50px" />
-      </div>
-      {/* Menu */}
-
-      <ul className="hidden md:flex">
-        <li>
-          <Link activeClass="active" to="home" smooth={true} duration={500}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link activeClass="active" to="about" smooth={true} duration={500}>
-            About
-          </Link>
-        </li>
-        <li>
-          <Link activeClass="active" to="skills" smooth={true} duration={500}>
-            Skills
-          </Link>
-        </li>
-        <li>
-          <Link activeClass="active" to="work" smooth={true} duration={500}>
-            Work
-          </Link>
-        </li>
-        <li>
-          <Link activeClass="active" to="contact" smooth={true} duration={500}>
-            Contact
-          </Link>
-        </li>
-      </ul>
-
-      {/* Hamburger */}
-      <div className="md:hidden z-10" onClick={handleClick}>
-        {!nav ? <FaBars /> : <FaTimes />}
-      </div>
-
-      {/* Mobile menu */}
-      <ul
-        className={
-          !nav
-            ? "hidden"
-            : "absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center"
-        }
+    <>
+      <div
+        className={`fixed w-full h-[80px] flex justify-between items-center px-4 bg-stone-100 text-gray-800 z-[10] transition-transform duration-300 ${
+          scrollDirection === "down" ? "-translate-y-full" : ""
+        } ${nav ? "!translate-y-0" : ""}`}
       >
-        <li className="py-6 text-4xl">
-          {" "}
-          <li>
-            <Link
-              onClick={handleClick}
-              activeClass="active"
-              to="home"
-              smooth={true}
-              duration={500}
-            >
+        <div className="ml-6">
+          <img
+            src={Logo}
+            alt="Logo"
+            width="50px"
+            onClick={scrollToTop}
+            className="cursor-pointer"
+          />
+        </div>
+        {/* Menu */}
+
+        <ul className="hidden md:flex">
+          <li className="hover:font-bold">
+            <Link activeClass="active" to="home" smooth={true} duration={500}>
               Home
             </Link>
           </li>
-        </li>
-        <li className="py-6 text-4xl">
-          {" "}
-          <li>
-            <Link
-              onClick={handleClick}
-              activeClass="active"
-              to="about"
-              smooth={true}
-              duration={500}
-            >
+          <li className="hover:font-bold">
+            <Link activeClass="active" to="about" smooth={true} duration={500}>
               About
             </Link>
           </li>
-        </li>
-        <li className="py-6 text-4xl">
-          {" "}
-          <li>
+          <li className="hover:font-bold">
             <Link
-              onClick={handleClick}
               activeClass="active"
-              to="skills"
+              to="history"
               smooth={true}
               duration={500}
             >
+              History
+            </Link>
+          </li>
+          <li className="hover:font-bold">
+            <Link activeClass="active" to="skills" smooth={true} duration={500}>
               Skills
             </Link>
           </li>
-        </li>
-        <li className="py-6 text-4xl">
-          {" "}
-          <li>
-            <Link
-              onClick={handleClick}
-              activeClass="active"
-              to="work"
-              smooth={true}
-              duration={500}
-            >
+          <li className="hover:font-bold">
+            <Link activeClass="active" to="work" smooth={true} duration={500}>
               Work
             </Link>
           </li>
-        </li>
-        <li className="py-6 text-4xl">
-          {" "}
-          <li>
+          <li className="hover:font-bold">
             <Link
-              onClick={handleClick}
               activeClass="active"
               to="contact"
               smooth={true}
@@ -124,11 +69,96 @@ const Navbar = () => {
               Contact
             </Link>
           </li>
-        </li>
-      </ul>
+        </ul>
 
-      {/* Social Icons */}
-      <div className="hidden lg:flex fixed flex-col top-[35%] left-0">
+        {/* Hamburger */}
+        <div className="md:hidden z-10" onClick={handleClick}>
+          {!nav ? <FaBars /> : <FaTimes />}
+        </div>
+
+        {/* Mobile menu */}
+        <ul
+          className={
+            !nav
+              ? "hidden"
+              : "absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center"
+          }
+        >
+          <li className="py-6 text-4xl">
+            {" "}
+            <li>
+              <Link
+                onClick={handleClick}
+                activeClass="active"
+                to="home"
+                smooth={true}
+                duration={500}
+              >
+                Home
+              </Link>
+            </li>
+          </li>
+          <li className="py-6 text-4xl">
+            {" "}
+            <li>
+              <Link
+                onClick={handleClick}
+                activeClass="active"
+                to="about"
+                smooth={true}
+                duration={500}
+              >
+                About
+              </Link>
+            </li>
+          </li>
+          <li className="py-6 text-4xl">
+            {" "}
+            <li>
+              <Link
+                onClick={handleClick}
+                activeClass="active"
+                to="skills"
+                smooth={true}
+                duration={500}
+              >
+                Skills
+              </Link>
+            </li>
+          </li>
+          <li className="py-6 text-4xl">
+            {" "}
+            <li>
+              <Link
+                onClick={handleClick}
+                activeClass="active"
+                to="work"
+                smooth={true}
+                duration={500}
+              >
+                Work
+              </Link>
+            </li>
+          </li>
+          <li className="py-6 text-4xl">
+            {" "}
+            <li>
+              <Link
+                onClick={handleClick}
+                activeClass="active"
+                to="contact"
+                smooth={true}
+                duration={500}
+              >
+                Contact
+              </Link>
+            </li>
+          </li>
+        </ul>
+      </div>
+
+      {/* Social Icons - moved outside the main navbar div */}
+      <div className="hidden lg:flex fixed flex-col top-[35%] left-0 z-20">
         <ul>
           <li className="w-[160px] h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-blue-600">
             <a
@@ -168,7 +198,7 @@ const Navbar = () => {
           </li> */}
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 
