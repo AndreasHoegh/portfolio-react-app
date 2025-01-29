@@ -3,12 +3,45 @@ import { Link } from "react-scroll";
 import { FaBars, FaTimes, FaGithub, FaLinkedin } from "react-icons/fa";
 import Logo from "../assets/logo2.png";
 import { useScrollDirection } from "../hooks/useScrollDirection";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const scrollDirection = useScrollDirection();
   const handleClick = () => setNav(!nav);
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const menuItems = [
+    { name: "Home", to: "home" },
+    { name: "About", to: "about" },
+    { name: "Skills", to: "skills" },
+    { name: "Work", to: "work" },
+    { name: "Contact", to: "contact" },
+  ];
+
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      x: "100%",
+      transition: {
+        staggerChildren: 0.1,
+        staggerDirection: -1,
+      },
+    },
+    open: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    closed: { x: 50, opacity: 0 },
+    open: { x: 0, opacity: 1 },
+  };
 
   return (
     <>
@@ -28,133 +61,64 @@ const Navbar = () => {
         </div>
         {/* Menu */}
 
-        <ul className="hidden md:flex">
-          <li className="hover:font-bold">
-            <Link activeClass="active" to="home" smooth={true} duration={500}>
-              Home
-            </Link>
-          </li>
-          <li className="hover:font-bold">
-            <Link activeClass="active" to="about" smooth={true} duration={500}>
-              About
-            </Link>
-          </li>
-          <li className="hover:font-bold">
-            <Link
-              activeClass="active"
-              to="history"
-              smooth={true}
-              duration={500}
-            >
-              History
-            </Link>
-          </li>
-          <li className="hover:font-bold">
-            <Link activeClass="active" to="skills" smooth={true} duration={500}>
-              Skills
-            </Link>
-          </li>
-          <li className="hover:font-bold">
-            <Link activeClass="active" to="work" smooth={true} duration={500}>
-              Work
-            </Link>
-          </li>
-          <li className="hover:font-bold">
-            <Link
-              activeClass="active"
-              to="contact"
-              smooth={true}
-              duration={500}
-            >
-              Contact
-            </Link>
-          </li>
+        <ul className="hidden md:flex gap-x-8">
+          {menuItems.map(({ name, to }) => (
+            <li key={name} className="hover:text-gray-600 cursor-pointer">
+              <Link to={to} smooth={true} duration={500}>
+                {name}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Hamburger */}
-        <div className="md:hidden z-10" onClick={handleClick}>
-          {!nav ? <FaBars /> : <FaTimes />}
+        <div className="md:hidden z-50 cursor-pointer" onClick={handleClick}>
+          <motion.div
+            initial={false}
+            animate={{ rotate: nav ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
+          </motion.div>
         </div>
 
-        {/* Mobile menu */}
-        <ul
-          className={
-            !nav
-              ? "hidden"
-              : "absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center"
-          }
-        >
-          <li className="py-6 text-4xl">
-            {" "}
-            <li>
-              <Link
-                onClick={handleClick}
-                activeClass="active"
-                to="home"
-                smooth={true}
-                duration={500}
-              >
-                Home
-              </Link>
-            </li>
-          </li>
-          <li className="py-6 text-4xl">
-            {" "}
-            <li>
-              <Link
-                onClick={handleClick}
-                activeClass="active"
-                to="about"
-                smooth={true}
-                duration={500}
-              >
-                About
-              </Link>
-            </li>
-          </li>
-          <li className="py-6 text-4xl">
-            {" "}
-            <li>
-              <Link
-                onClick={handleClick}
-                activeClass="active"
-                to="skills"
-                smooth={true}
-                duration={500}
-              >
-                Skills
-              </Link>
-            </li>
-          </li>
-          <li className="py-6 text-4xl">
-            {" "}
-            <li>
-              <Link
-                onClick={handleClick}
-                activeClass="active"
-                to="work"
-                smooth={true}
-                duration={500}
-              >
-                Work
-              </Link>
-            </li>
-          </li>
-          <li className="py-6 text-4xl">
-            {" "}
-            <li>
-              <Link
-                onClick={handleClick}
-                activeClass="active"
-                to="contact"
-                smooth={true}
-                duration={500}
-              >
-                Contact
-              </Link>
-            </li>
-          </li>
-        </ul>
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {nav && (
+            <motion.div
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
+              className="fixed top-0 right-0 w-full h-screen bg-stone-100 flex flex-col justify-center items-center"
+            >
+              <motion.ul className="flex flex-col items-center gap-8">
+                {menuItems.map(({ name, to }) => (
+                  <motion.li
+                    key={name}
+                    variants={itemVariants}
+                    className="text-4xl hover:text-gray-600"
+                  >
+                    <Link
+                      onClick={handleClick}
+                      to={to}
+                      smooth={true}
+                      duration={500}
+                      className="relative group"
+                    >
+                      {name}
+                      <motion.span
+                        className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gray-800 group-hover:w-full transition-all duration-300"
+                        initial={{ width: "0%" }}
+                        whileHover={{ width: "100%" }}
+                      />
+                    </Link>
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Social Icons - moved outside the main navbar div */}
