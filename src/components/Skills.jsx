@@ -51,17 +51,19 @@ const Skills = () => {
       name="skills"
       className="w-full min-h-screen bg-gray-800 text-gray-300"
     >
-      <div className="max-w-[1000px] mx-auto p-8 flex flex-col justify-center h-full">
+      <div className="max-w-[1600px] mx-auto p-8 2xl:p-16 flex flex-col justify-center h-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <p className="text-4xl font-bold inline border-b-4 border-gray-600">
+          <p className="text-4xl xl:text-5xl 2xl:text-6xl font-bold inline border-b-4 border-gray-600">
             Skills
           </p>
-          <p className="py-6">These are the technologies I've worked with</p>
+          <p className="py-6 xl:py-8 2xl:py-10 xl:text-xl 2xl:text-2xl">
+            These are the technologies I've worked with
+          </p>
         </motion.div>
 
         <motion.div
@@ -69,7 +71,7 @@ const Skills = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 text-center py-8"
+          className="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-8 xl:gap-10 2xl:gap-12 text-center py-8 xl:py-12"
         >
           {skills.map(({ id, image, name }) => (
             <motion.div
@@ -77,13 +79,13 @@ const Skills = () => {
               variants={item}
               className="group hover:scale-105 duration-500"
             >
-              <div className="shadow-md shadow-[#040c16] hover:shadow-customPurple p-6 rounded-xl bg-gray-700 relative overflow-hidden">
+              <div className="shadow-md shadow-[#040c16] hover:shadow-customPurple p-6 xl:p-8 2xl:p-10 rounded-xl bg-gray-700">
                 <img
-                  className="w-20 mx-auto group-hover:scale-110 duration-300"
+                  className="w-20 xl:w-24 2xl:w-32 mx-auto group-hover:scale-110 duration-300"
                   src={image}
                   alt={`${name} icon`}
                 />
-                <p className="my-4 group-hover:text-customPurple duration-300">
+                <p className="my-4 xl:text-lg 2xl:text-xl group-hover:text-customPurple duration-300">
                   {name}
                 </p>
               </div>

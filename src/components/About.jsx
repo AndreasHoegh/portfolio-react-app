@@ -12,20 +12,20 @@ const About = () => {
       name="about"
       className="min-h-screen w-full bg-gray-800 text-gray-300 py-12 px-8"
     >
-      <div className="flex flex-col justify-center items-center w-full h-full">
-        <div className="max-w-[1000px] w-full grid grid-cols-2 gap-8">
+      <div className="flex flex-col justify-center items-center w-full h-full max-w-[1400px] mx-auto">
+        <div className="max-w-[1200px] w-full grid grid-cols-2 gap-8">
           <div className="sm:text-right pb-8 pl-4">
-            <p className="text-4xl font-bold inline border-b-4 border-gray-600">
+            <p className="text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl font-bold inline border-b-4 border-gray-600">
               About
             </p>
           </div>
         </div>
-        <div className="max-w-[1000px] w-full grid sm:grid-cols-2 gap-8 px-4">
-          <div className="sm:text-right text-4xl font-bold">
+        <div className="max-w-[1200px] w-full grid sm:grid-cols-2 gap-8 px-4">
+          <div className="sm:text-right text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl font-bold">
             <p>Nice to meet you. Please take a look around.</p>
             <motion.div
               ref={ref}
-              className="mt-8 max-w-[300px] overflow-hidden rounded-lg"
+              className="mt-8 max-w-[300px] overflow-hidden rounded-lg 3xl:max-w-[500px]"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{
                 opacity: isInView ? 0.7 : 0,
@@ -43,7 +43,7 @@ const About = () => {
               />
             </motion.div>
           </div>
-          <div>
+          <div className="text-lg xl:text-xl 2xl:text-2xl 3xl:text-4xl">
             <p>
               I'm a Healthcare Technology Engineer with a passion for creating
               innovative software solutions that make a difference. My unique

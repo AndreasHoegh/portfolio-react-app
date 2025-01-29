@@ -7,19 +7,11 @@ const History = () => {
       className="min-h-screen w-full bg-stone-100 text-gray-800 py-12 px-8"
     >
       <div className="flex flex-col justify-center items-center w-full h-full">
-        <div className="max-w-[1000px] w-full grid grid-cols-2 gap-8">
-          <div className="sm:text-right pb-8 pl-4">
-            <p className="text-4xl font-bold inline border-b-4 border-gray-300">
-              History
-            </p>
-          </div>
-          <div></div>
-        </div>
-        <div className="max-w-[1000px] w-full grid sm:grid-cols-2 gap-8 px-4">
-          <div className="sm:text-right text-4xl font-bold">
+        <div className="max-w-[1200px] 3xl:max-w-[1600px] w-full grid sm:grid-cols-2 gap-8 px-4">
+          <div className="sm:text-right text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl font-bold">
             <p>My Journey So Far</p>
           </div>
-          <div>
+          <div className="text-lg xl:text-xl 3xl:text-4xl">
             <p>
               My journey in technology began at Aarhus University, where I
               specialized in Healthcare Technology Engineering. My curriculum
