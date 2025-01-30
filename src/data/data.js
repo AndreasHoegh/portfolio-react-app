@@ -1,6 +1,6 @@
 import Upcoming from "../assets/projects/UPCOMING.png";
 import Padel from "../assets/projects/padel.png";
-import HabitHero from "../assets/projects/habithero.png";
+import HabitHero from "../assets/projects/habit-hero.png";
 
 export const data = [
   {
