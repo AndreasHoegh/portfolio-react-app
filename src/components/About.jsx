@@ -1,11 +1,19 @@
-import React from "react";
-import { motion, useInView } from "framer-motion";
+import React, { useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef } from "react";
 import hero from "../assets/hero.png";
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const paragraphs = [
+    "I'm a Healthcare Technology Engineer with a passion for creating innovative software solutions that make a difference.",
+    "My unique background as a former professional poker player taught me invaluable lessons in strategy, adaptability, and performing under pressure - skills that I now apply to software development.",
+    "I thrive on bringing ideas to life through code and am constantly seeking new challenges to expand my technical expertise.",
+    "When I'm not coding, you'll find me playing padel tennis, enjoying board games, traveling, or diving into a good book.",
+  ];
 
   return (
     <div
@@ -43,18 +51,49 @@ const About = () => {
               />
             </motion.div>
           </div>
+
+          {/* Text Content */}
           <div className="text-lg xl:text-xl 2xl:text-2xl 3xl:text-4xl">
-            <p>
-              I'm a Healthcare Technology Engineer with a passion for creating
-              innovative software solutions that make a difference. My unique
-              background as a former professional poker player taught me
-              invaluable lessons in strategy, adaptability, and performing under
-              pressure - skills that I now apply to software development. I
-              thrive on bringing ideas to life through code and am constantly
-              seeking new challenges to expand my technical expertise. When I'm
-              not coding, you'll find me playing padel tennis, enjoying board
-              games, traveling, or diving into a good book.
-            </p>
+            {/* Mobile View */}
+            <div className="sm:hidden space-y-4">
+              {paragraphs
+                .slice(0, isExpanded ? paragraphs.length : 2)
+                .map((para, index) => (
+                  <motion.p
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: index * 0.2 }}
+                    className="leading-relaxed"
+                  >
+                    {para}
+                  </motion.p>
+                ))}
+              <motion.button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="text-gray-400 hover:text-white transition-colors mt-4 block"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {isExpanded ? "Show Less" : "Read More..."}
+              </motion.button>
+            </div>
+
+            {/* Desktop View */}
+            <div className="hidden sm:block space-y-4">
+              {paragraphs.map((para, index) => (
+                <motion.p
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="leading-relaxed"
+                >
+                  {para}
+                </motion.p>
+              ))}
+            </div>
           </div>
         </div>
       </div>
