@@ -1,5 +1,6 @@
 import Upcoming from "../assets/projects/UPCOMING.png";
 import Padel from "../assets/projects/padel.png";
+import HabitHero from "../assets/projects/habithero.png";
 
 export const data = [
   {
@@ -11,10 +12,10 @@ export const data = [
   },
   {
     id: 2,
-    name: "eat-n-split React",
-    image: Upcoming,
-    github: "",
-    live: "",
+    name: "HabitHero",
+    image: HabitHero,
+    github: "https://github.com/AndreasHoegh/habit-hero",
+    live: "https://habit-hero-a95q2j3hm-andreas-projects-624247a7.vercel.app/",
   },
   {
     id: 3,
