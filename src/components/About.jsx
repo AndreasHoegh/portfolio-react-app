@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import hero from "../assets/hero.png";
 
